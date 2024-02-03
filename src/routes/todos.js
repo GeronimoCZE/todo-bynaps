@@ -18,7 +18,7 @@ pool.connect().then(async (client) => {
 )
 pool.on('error', (err, client) => {
   process.postgresql = undefined
-  console.error('Unexpected error on idle client', err) // your callback here
+  console.error('Unexpected error on idle client', err) // callback
   process.exit(-1)
 })
 

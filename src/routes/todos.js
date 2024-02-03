@@ -3,10 +3,10 @@ const router = express.Router();
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'nikolas',
+  user: 'nikolas', // change for your superuser or user name with granted permisions
   host: '127.0.0.1',
   database: 'bynaps',
-  password: 'test1234',
+  password: 'test1234', // change for your password or leave empty if have no password
   port: 5432,
 });
 

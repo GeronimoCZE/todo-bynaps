@@ -15,5 +15,5 @@ Create the db
 > [!WARNING]
 > You have to start the db before you start the application
 
-Start the server
+Start the server (also starts the db)
 > npm start

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const validateID = (req, res, next) => {
   const id = req.params.id
-  if(id % 1 != 0){
+  if(id % 1 !== 0){
     res.status(400).json({ status: "error" , message: "id parameter must be a whole number" })
   } else {
     next()
@@ -11,15 +11,15 @@ const validateID = (req, res, next) => {
 }
 const validateInput = (req, res, next) => {
   const {task, completed} = req.body
-  if(task == undefined && completed == undefined){
+  if(task === undefined && completed === undefined){
     res.status(400).json({ status: "error" , message: "At least one of task (string) or completed (boolean) must be provided" }); return;
   }
 
-  if(typeof task == "string" || task == undefined){}
+  if(typeof task === "string" || task === undefined){}
   else {
     res.status(400).json({ status: "error" , message: "task must be a string" }); return;
   }
-  if(typeof completed == "boolean" || completed == undefined){}
+  if(typeof completed === "boolean" || completed === undefined){}
   else {
     res.status(400).json({ status: "error" , message: "completed must be a boolean" }); return;
   }
@@ -27,7 +27,7 @@ const validateInput = (req, res, next) => {
 }
 
 router.use('/', (req, res, next) => {
-  if(process.postgresql != undefined){
+  if(process.postgresql !== undefined){
     next()
   } else {
     res.status(500).json({status: "error" , message: "no connection to the database"})
@@ -58,7 +58,7 @@ router.get('/:id', validateID, async (req, res) => {
 
 router.post('/', async (req, res) => {
   const {task} = req.body
-  if(task == undefined || typeof task !== 'string'){
+  if(task === undefined || typeof task !== 'string'){
     res.status(400).json({ status: "error" , message: 'task is required and must be a string' });
     return;
   }

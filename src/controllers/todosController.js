@@ -75,7 +75,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', validateInput, async (req, res) => {
+router.put('/:id', validateID, validateInput, async (req, res) => {
   try {
     const {task, completed} = req.body
     const todo = await process.postgresql.query('SELECT * FROM todos WHERE "id" = $1', [req.params.id]);
